@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Header.css */
+.active-link {
+  border-bottom: 5px solid blue; /* Example border styling */
+}
