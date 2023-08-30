@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Explore from './pages/Explore';
 import Login from './pages/Login';
 import Support from './pages/Support';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/support" element={<Layout><Support /></Layout>} />
           {/* Login without Layout */}
           <Route path='/login' element={<Login />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
     </Router>

@@ -1,0 +1,44 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #ff6b6b, #3a1c71);
+  }
+  
+  .not-found-title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #333; /* Initial text color */
+    animation: colorChange 5s infinite alternate;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      color: #333;
+    }
+    100% {
+      color: #fff;
+    }
+  }
+  
+  .not-found-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #666; /* Initial text color */
+    animation: colorChange 5s infinite alternate;
+  }
+  
+  .not-found-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .not-found-link:hover {
+    color: #0056b3;
+  }
+  
