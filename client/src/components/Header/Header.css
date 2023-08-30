@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 40px ;
+  padding: 30px 40px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-bottom: 1px solid #000000;
@@ -31,7 +31,8 @@
 
 /* Header.css */
 .active-link {
-  border-bottom: 2px solid blue; /* Example border styling */
+  border-bottom: 2px solid blue;
+  /* Example border styling */
 }
 
 
@@ -71,11 +72,54 @@
 
 .user-icon {
   cursor: pointer;
-  margin-right: 20px; /* Adjust spacing as needed */
+  margin-right: 20px;
 }
 
 .user-icon-img {
   width: 30px;
   height: 30px;
-  border: 2px solid red; /* Add this line */
+  border: 2px solid red;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  /* Start with transparent background */
+  z-index: 999;
+}
+
+.overlay.fade-in {
+  animation: fadeInOverlay 1s ease forwards;
+}
+
+.overlay.fade-out {
+  animation: fadeOutOverlay 0.7s ease forwards;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    /* Transparent at the beginning */
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent at the end */
+  }
+}
+
+@keyframes fadeOutOverlay {
+  from {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent at the beginning */
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0);
+    /* Transparent at the end */
+  }
 }

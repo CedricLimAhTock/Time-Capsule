@@ -1,3 +1,5 @@
+// Header.js
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
@@ -8,11 +10,18 @@ const Header = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const toggleForm = () => {
-    setIsFormOpen(!isFormOpen);
+    if (isFormOpen) {
+      setIsFormOpen(false);
+      document.body.style.overflow = 'auto'; // Restore scrolling when form is closed
+    } else {
+      setIsFormOpen(true);
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when form is open
+    }
   };
 
   return (
     <header className="header">
+      <div className={`overlay ${isFormOpen ? 'fade-in' : 'fade-out'}`} onClick={toggleForm}></div>
       <div className="left-section">
         <NavLink exact to="/" className="logo-link">Time Capsule</NavLink>
       </div>
