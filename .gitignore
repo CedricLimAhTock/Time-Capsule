@@ -1,2 +1,6 @@
 #Server configurations
 /server/config.js
+
+
+# dependencies
+/server/node_modules
