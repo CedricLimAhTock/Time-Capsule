@@ -1,5 +1,3 @@
-// Header.js
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
@@ -21,15 +19,14 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className={`overlay ${isFormOpen ? 'fade-in' : 'fade-out'}`} onClick={toggleForm}></div>
       <div className="left-section">
         <NavLink exact to="/" className="logo-link">Time Capsule</NavLink>
       </div>
       <div className="right-section">
         <nav className="nav-links">
-          <NavLink exact to="/" activeClassName="active-link">Home</NavLink>
-          <NavLink to="/explore" activeClassName="active-link">Explore</NavLink>
-          <NavLink to="/support" activeClassName="active-link">Support</NavLink>
+          <NavLink exact to="/" className="space" activeClassName="active-link">Home</NavLink>
+          <NavLink to="/explore" className="space" activeClassName="active-link">Explore</NavLink>
+          <NavLink to="/feedback" className="space" activeClassName="active-link">Feedback</NavLink>
         </nav>
         <div className="icon" onClick={toggleForm}>
           <User />

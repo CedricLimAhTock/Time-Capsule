@@ -27,7 +27,8 @@ const Home = () => {
       </div>
 
       <div className='right-container'>
-        <img src={imageUrl} alt='Time Capsule Product' /> {/* Use a concise description */}
+        <img src={imageUrl} alt='Time Capsule Product' />
+        {/* <Countdown /> */}
       </div>
     </div>
   );

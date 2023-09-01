@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
 import Login from './pages/Login';
-import Support from './pages/Support';
+import Feedback from './pages/Feedback';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/explore" element={<Layout><Explore /></Layout>} />
-          <Route path="/support" element={<Layout><Support /></Layout>} />
+          <Route path="/feedback" element={<Layout><Feedback /></Layout>} />
           {/* Login without Layout */}
           <Route path='/login' element={<Login />} />
           <Route path='*' element={<NotFound />} />
