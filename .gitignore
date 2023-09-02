@@ -4,3 +4,7 @@
 
 # dependencies
 /server/node_modules
+
+
+# KEYS
+/server/.env
