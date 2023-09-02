@@ -1,5 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import User from './models/user';
 
 const router = express.Router();
@@ -25,6 +26,21 @@ router.post('/login', async (req, res) => {
         message: 'Invalid credentials'
       });
     }
+
+    // If authentication is successful, generate a new JWT for the user
+    const token = jwt.sign({
+      userID: user._id,
+      username: user.username,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: '2h',
+    });
+    
+    // Send the JWT back to the user
+    res.json({ token });
+
+
 
   } catch (error) {
     console.error(error);
