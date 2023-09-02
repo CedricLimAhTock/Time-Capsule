@@ -18,10 +18,14 @@ const Feedback = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className='form-container'>
       <h1 className='form-title'>Feedback Form</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type='text'
           placeholder='Name'
