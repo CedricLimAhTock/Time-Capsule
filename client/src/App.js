@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Feedback from './pages/Feedback';
 import NotFound from './pages/NotFound';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/feedback" element={<Layout><Feedback /></Layout>} />
           {/* Login without Layout */}
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>

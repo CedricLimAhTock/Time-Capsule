@@ -11,7 +11,7 @@ const Login = () => {
       e.preventDefault();
       
       try {
-        const response = await axios.post('/api/login', {
+        const response = await axios.post('/api/signup', {
           username,
           password
         });
@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>Sign up</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-element'>
           <input 
@@ -53,9 +53,9 @@ const Login = () => {
         <div className='form-element'>
           <input
             type='submit'
-            value= 'Log In'
+            value= 'Sign up'
           />
-          <Link to="/signup">Don't have an account? Sign up here</Link>
+          <Link to="/login">Have an account? Log in here</Link>
         </div>
         </div>
       </form>
