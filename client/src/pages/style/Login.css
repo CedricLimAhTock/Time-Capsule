@@ -1,0 +1,71 @@
+/* style/Login.css */
+
+/* Target the entire form container */
+.login-container {
+    margin: 0 auto; /* Center horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #cccccc;
+    padding: 20px;
+    width: 50%;
+    max-width: 400px; /* Adjust the max-width as needed */
+  }
+  
+  /* Target the h2 element inside the form container */
+  .login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Target the form element */
+  .form-element {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+/* Center the input fields */
+.form-element input[type="text"],
+.form-element input[type="password"],
+.form-element input[type="submit"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px; /* Add spacing between input fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* Target the placeholder text in input fields */
+.form-element input[type="text"]::placeholder,
+.form-element input[type="password"]::placeholder,
+.form-element input[type="submit"]::placeholder {
+    letter-spacing: 1px; /* Adjust the letter-spacing as needed */
+}
+
+.form-element input[type="submit"] {
+  background-color:  rgb(56, 105, 205);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.form-element input[type="submit"]:hover {
+  background-color: rgb(76, 125, 225);
+}
+
+
+
+  /* Target the Link element */
+  .form-element a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #0056b3;
+  }
+
+
+  
