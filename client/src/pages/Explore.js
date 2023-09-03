@@ -1,5 +1,5 @@
 import React from 'react'
-import Countdown from '../components/Countdown';
+import Countdown from '../components/Countdown/Countdown';
 
 const Explore = () => {
   return (
