@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Feedback from './pages/Feedback';
 import NotFound from './pages/NotFound';
+import Timeline from './pages/Timeline';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/explore" element={<Layout><Explore /></Layout>} />
           <Route path="/feedback" element={<Layout><Feedback /></Layout>} />
+          <Route path="/timeline" element={<Layout><Timeline /></Layout>} />
           {/* Login without Layout */}
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />

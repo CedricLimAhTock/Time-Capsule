@@ -1,0 +1,49 @@
+/* Event.css */
+.event-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    width: 100%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a maximum width if necessary */
+    margin: 0 auto; /* Center the card horizontally */
+    padding: 1rem; /* Adjust the padding as needed */
+}
+
+.event-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-img {
+    flex: 1; /* Take one-third of the card width */
+    max-width: 100px; /* Adjust the image width as needed */
+    margin-right: 1rem; /* Add spacing between image and text */
+}
+
+.event-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.event-info {
+    flex: 2; /* Take two-thirds of the card width */
+}
+
+.event-title {
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.event-description {
+    font-size: 0.875rem; /* 14px */
+    color: #888888;
+    margin: 0;
+}

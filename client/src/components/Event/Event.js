@@ -1,9 +1,9 @@
 import React from 'react'
-import tempImage from '../../assets/images/temp.jpg'
+import tempImage from '../../assets/temp2.png'
 import './Event.css'
 
-const Event = ( event ) => {
-    const { img, title, description } = event
+const Event = ( {event} ) => {
+    const { img, title, date, description } = event
 
     const image = img ? img : tempImage;
 
@@ -21,8 +21,6 @@ const Event = ( event ) => {
             <p className='event-title'>{title}</p>
             <p className='event-description'>{description}</p>
         </div>
-
-
     </div>
   )
 }
