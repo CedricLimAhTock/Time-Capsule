@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './style/Login.css';
 
@@ -11,10 +11,10 @@ const Login = () => {
       e.preventDefault();
       
       try {
-        const response = await axios.post('/api/signup', {
-          username,
-          password
-        });
+        //const response = await axios.post('/api/signup', {
+        //  username,
+        //  password
+        //});
 
         // If successfully logged in, redirect to the explore page
         // const { jwtToken } = response.data;         // Receive the token from the response

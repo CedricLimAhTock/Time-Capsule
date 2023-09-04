@@ -4,6 +4,7 @@ import './TimelineControl.css'
 
 const TimelineControl = () => {
     const [isSortOpen, setIsSortOpen] = useState(false);
+    const [isIconClicked, setIsIconClicked] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isCustomOpen, setIsCustomOpen] = useState(false);
 
@@ -12,7 +13,7 @@ const TimelineControl = () => {
     }
 
     const toggleSearch = () => {
-        setIsSearchOpen(!isSearchOpen)
+        setIsSearchOpen(!isSearchOpen);
     }
 
     const toggleCustom = () => {
@@ -21,8 +22,11 @@ const TimelineControl = () => {
 
   return (
     <div className='timeline-control'>
-        <button className='timeline-sort'  onClick={toggleSort}>Sort by</button>
-        <img className='search-icon' src={sortIcon} alt='sort-icon' onClick={toggleSearch} />
+        <button className='timeline-sort'  onClick={toggleSort}>Sort</button>
+        <img className='search-icon' src={sortIcon} alt='sort-icon' onClick={toggleSearch} 
+        style={{ display: isSearchOpen ? 'none' : 'inline-block' }}/>
+        <input type='text' className='timeline-search' placeholder='Search' 
+         style={{ display: isSearchOpen ? 'inline-block' : 'none' }}/>
         <button className='timeline-custom'  onClick={toggleCustom}>Custom</button>
     </div>
   )

@@ -1,0 +1,67 @@
+.timeline-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(227, 227, 227, 0.5); /* Change the background color to your desired color */
+    color: white; /* Change the text color to your desired color */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.timeline-sort,
+.timeline-custom {
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    border: #0D53D5 1px solid;
+    background-color: white;
+    color: #4878d2;
+    width: 7rem; /* Adjust the width to make the button wider */
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+}
+
+.search-container.expanded {
+    max-width: 200px; /* Adjust the width of the search box when expanded */
+    opacity: 1;
+
+}
+
+.search-icon {
+    width: 24px; /* Adjust the icon size as needed */
+    height: 24px; /* Adjust the icon size as needed */
+    cursor: pointer;
+    margin: 0px 20px;
+}
+
+.timeline-search {
+    background-color: white;
+    border: none;
+    color: black;
+    cursor: pointer;
+    padding: 10px; /* Adjust the padding to increase the height */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    height: 10px; /* Set the desired height */
+    text-align: center;
+    margin: 0px 20px;
+}
+
+
+/* Add any additional styles or animations as needed */

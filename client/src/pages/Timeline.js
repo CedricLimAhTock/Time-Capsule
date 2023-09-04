@@ -1,5 +1,6 @@
 import React from 'react'
 import Event from '../components/Event/Event'
+import TimelineControl from '../components/TimelineControl/TimelineControl'
 import img from '../assets/temp2.png'
 
 const Timeline = () => {
@@ -11,6 +12,7 @@ const Timeline = () => {
 
   return (
     <div>
+        <TimelineControl />
         <Event event={temp}/>
     </div>
   )
