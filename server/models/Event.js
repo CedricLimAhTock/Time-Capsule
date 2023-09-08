@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 // Define the user schema
@@ -21,6 +21,6 @@ const eventSchema = new Schema({
   });
 
 // Create the Event model
-const Event = mongoose.model('', eventSchema);
+const Event = mongoose.model('Event', eventSchema);
 
-module.exports = Event;
+export default Event;
