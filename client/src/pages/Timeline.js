@@ -8,7 +8,7 @@ const Timeline = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5555/events12')
+      .get('http://localhost:5555/events')
       .then((response) => {
         const eventComponents = response.data.map((event) => (
           <Event key={event._id} event={event} />

@@ -3,27 +3,24 @@ import mongoose from 'mongoose';
 import { PORT, mongoDBURL } from './config.js';
 import Event from './models/Event.js';
 import cors from 'cors';
+import eventRoutes from './routes/events.js'
 
 const app = express(); 
 
 app.use(express.json());
 app.use(cors());
 
+// app.use(
+//   cors({
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type'],
+//   })
+// );
 
-app.get('/events12', async (req, res) => {
-    try {
-      const events = await Event.find();
-      res.json(events);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
 
-app.get('/', (request, response) => {
-    console.log(request);
-    return response.status(234).send('Welcome To MERN Stack Tutorial');
-  });
+app.use('/events', eventRoutes);
+
 
 mongoose
     .connect(mongoDBURL, {
