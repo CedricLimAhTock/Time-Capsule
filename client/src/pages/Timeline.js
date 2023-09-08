@@ -1,21 +1,31 @@
-import React from 'react'
-import Event from '../components/Event/Event'
-import TimelineControl from '../components/TimelineControl/TimelineControl'
-import img from '../assets/temp2.png'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios library
+import Event from '../components/Event/Event';
+import TimelineControl from '../components/TimelineControl/TimelineControl.js';
 
 const Timeline = () => {
-    const temp = {
-        title: 'Event Title',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non lorem neque.',
-        image: img,
-    }
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5555/events12')
+      .then((response) => {
+        const eventComponents = response.data.map((event) => (
+          <Event key={event._id} event={event} />
+        ));
+        setEvents(eventComponents);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
-        <TimelineControl />
-        <Event event={temp}/>
+      <TimelineControl />
+      {events}
     </div>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

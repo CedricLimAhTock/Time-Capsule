@@ -5,7 +5,7 @@ const router = express.Router();
 router.use(express.json());
 
 // Create new event
-router.post('/events', async (req, res) => {
+router.post('/eventssss', async (req, res) => {
     try {
         const newEvent = new Event({
             title: req.body.title,
@@ -24,7 +24,7 @@ router.post('/events', async (req, res) => {
 });
 
 // Get all events
-router.get('/events/:userID', async (req, res) => {
+router.get('/eventssss', async (req, res) => {
     try {
         const userID = req.params.userID;
         const event = await Event.find({ userID });
@@ -62,7 +62,7 @@ router.put('/events/:id', async (req,res) => {
 router.delete('/events/:id', async (req, res) => {
     try {
         const { id } = req.params; 
-        const result = await Event.findByIdAndDelete(id)
+        const result = await Event.indByIdAndDelete(id)
 
         if (!result) {
             return res.status(404).json({ message: 'No events found in database' });

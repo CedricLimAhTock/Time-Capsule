@@ -2,33 +2,29 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { PORT, mongoDBURL } from './config.js';
 import Event from './models/Event.js';
+import cors from 'cors';
 
-const app = express ();
+const app = express(); 
+
 app.use(express.json());
-// Create new event
-app.get('/events', async (req, res) => {
+app.use(cors());
+
+
+app.get('/events12', async (req, res) => {
     try {
-        if (
-            !req.body.title || !req.body.description
-        ) {
-            return res.status(400).json({ message: 'Please fill out all fields' });
-        }
-
-        const newEvent = new Event({
-            title: req.body.title,
-            description: req.body.description,
-            date: req.body.date,
-            media: req.body.media,
-        });
-
-        const event = await Event.create(newEvent);
-        return res.status(201).json(event);
-
+      const events = await Event.find();
+      res.json(events);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error' });
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
     }
-});
+  });
+
+app.get('/', (request, response) => {
+    console.log(request);
+    return response.status(234).send('Welcome To MERN Stack Tutorial');
+  });
+
 mongoose
     .connect(mongoDBURL, {
         useNewUrlParser: true,
@@ -36,10 +32,12 @@ mongoose
     })
     .then(() => {
         console.log('Connected to database');
-        app.listen (PORT, () => {
-            console.log ('Server running on port 5555');
-        }); 
     })
     .catch((err) => {
-        console.log('Error connecting to databse', err.message);
+        console.log('Error connecting to database', err.message);
     });
+
+const serverPort = PORT || 3000;
+app.listen(serverPort, () => {
+    console.log(`Server is running on port ${serverPort}`);
+});
