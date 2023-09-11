@@ -123,15 +123,13 @@ body {
 .container .content {
   display: flex; /* Add this line to enable flexbox */
   align-items: center; /* Vertically center the content */
-  padding: 30px 90px 30px 30px;
+  padding: 20px 20px 20px 20px;
   background: #efefef;
   position: relative;
   border-radius: 25px;
 }
 
-.container.right .content {
-  padding: 30px 30px 30px 30px;
-}
+
 
 .container .content h2 {
   margin: 0 0 10px 0;
@@ -193,9 +191,10 @@ body {
 }
 
 .eventImg {
-  flex: 0 0 60px; /* Add this line to keep the image as a square */
-  width: 60px;
-  height: 60px;
+  flex: 0 0 60px;
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
   margin-right: 1rem;
   object-fit: cover;
 }

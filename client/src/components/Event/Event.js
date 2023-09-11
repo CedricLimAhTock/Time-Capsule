@@ -7,13 +7,13 @@ const Event = ({ event, isEven }) => {
 
     const image = img ? img : tempImage;
 
-    const tempFunction = () => {
+    const toggleForm = () => {
         console.log('clicked')
     }
 
     return (
 
-        <div className={isEven ? 'container left' : 'container right'}>
+        <div className={isEven ? 'container left' : 'container right'} onClick={toggleForm}>
             <div className="date">15 JUL</div>
             <div className='content'>
                 <img className="eventImg" src={image} alt="food" />
