@@ -2,8 +2,8 @@ import React from 'react'
 import tempImage from '../../assets/testing.jpg'
 import './Event.css'
 
-const Event = ({ event }) => {
-    const { img, title, description } = event
+const Event = ({ event, isEven }) => {
+    const { img, title, description, date } = event
 
     const image = img ? img : tempImage;
 
@@ -12,19 +12,17 @@ const Event = ({ event }) => {
     }
 
     return (
-        <div className='timeline-item'>
-            <div className="timeline-img"></div>
-            <div className='timeline-content' onClick={tempFunction}>
 
-                <div className='event-img'>
-                    <img className="eventImg" src={image} alt="food" />
-                </div>
-                <div className='event-info'>
-                    <p className='event-title'>{title}</p>
+        <div className={isEven ? 'container left' : 'container right'}>
+            <div className="date">15 JUL</div>
+            <div className='content'>
+                <img className="eventImg" src={image} alt="food" />
+                <div className="content-info">
+                    <h2 className='event-title'>{title}</h2>
                     <p className='event-description'>{description}</p>
                 </div>
-
             </div>
+
         </div>
     )
 }

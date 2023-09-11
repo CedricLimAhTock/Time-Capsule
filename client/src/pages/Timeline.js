@@ -15,8 +15,7 @@ const Timeline = () => {
           <Event
             key={event._id}
             event={event}
-            position={index % 2 === 0 ? 'left' : 'right'}
-            className={index % 2 === 0 ? '' : 'timeline-card'}
+            isEven={index % 2 === 0} // Pass the condition as a prop
           />
         ));
         setEvents(eventComponents);
@@ -27,11 +26,12 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="timeline">
+    <>
       <TimelineControl />
-      {events}
-    </div>
-    
+      <div className="timeline">
+        {events}
+      </div>
+    </>
   );
 };
 

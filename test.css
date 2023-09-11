@@ -1,3 +1,4 @@
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -63,7 +64,7 @@ body {
 .container::before {
   content: '';
   position: absolute;
-  width: 22px;
+  width: 50px;
   height: 2px;
   top: calc(50% - 1px);
   right: 8px;
@@ -121,16 +122,15 @@ body {
 }
 
 .container .content {
-  display: flex; /* Add this line to enable flexbox */
-  align-items: center; /* Vertically center the content */
   padding: 30px 90px 30px 30px;
   background: #efefef;
   position: relative;
-  border-radius: 25px;
+  border-radius: 0 500px 500px 0;
 }
 
 .container.right .content {
-  padding: 30px 30px 30px 30px;
+  padding: 30px 30px 30px 90px;
+  border-radius: 500px 0 0 500px;
 }
 
 .container .content h2 {
@@ -190,12 +190,4 @@ body {
     padding: 30px 30px 30px 90px;
     border-radius: 500px 0 0 500px;
   }
-}
-
-.eventImg {
-  flex: 0 0 60px; /* Add this line to keep the image as a square */
-  width: 60px;
-  height: 60px;
-  margin-right: 1rem;
-  object-fit: cover;
 }
