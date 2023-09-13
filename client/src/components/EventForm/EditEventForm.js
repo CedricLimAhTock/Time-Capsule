@@ -3,7 +3,7 @@ import './EventForm.css';
 import { ReactComponent as CloseIcon } from '../../assets/close.svg';
 import axios from 'axios';
 
-const EditEventForm = ({ isEventFormOpen, onClose }) => {
+const EditEventForm = ({ isEventFormOpen, onClose, eventData }) => {
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -26,77 +26,107 @@ const EditEventForm = ({ isEventFormOpen, onClose }) => {
     };
   }, [isEventFormOpen, onClose]);
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState(eventData.title || '');
+  const [description, setDescription] = useState(eventData.description || '');
+  const [date, setDate] = useState(eventData.date || '');
+  const id = eventData._id;
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, action) => {
     event.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:5555/events', { 
-        "title": title.toString(), 
-        "description": description.toString(), 
-        "date": date
-      });
+    if (action === 'edit') {
+      try {
+        const response = await axios.put(`http://localhost:5555/events/${id}`, {
+          title: title.toString(),
+          description: description.toString(),
+          date: date,
+        });
 
-      if(response.status === 201) {
-        alert('Created');
-        console.log(response);
-      } else {
-        console.log(response);
-        console.log("nope");
+        if (response.status === 200) {
+          alert('Updated');
+          console.log(response);
+        } else {
+          console.log(response);
+          console.log('Failed to update');
+        }
+      } catch (err) {
+        console.log('Error updating');
+        console.error(err);
       }
-    } catch (err) {
-      console.log("err")
-      console.log(err);
+    } else if (action === 'delete') {
+      try {
+        const response = await axios.delete(`http://localhost:5555/events/${id}`);
+
+        if (response.status === 204) {
+          alert('Deleted');
+          console.log(response);
+        } else {
+          console.log(response);
+          console.log('Failed to delete');
+        }
+      } catch (err) {
+        console.log('Error deleting');
+        console.error(err);
+      }
     }
+  };
+
+  return (
+    <div id='event-form' className={isEventFormOpen ? 'show' : 'hide'} ref={formRef}>
 
 
-  }
+      <form className='form' onSubmit={handleSubmit}>
+        <button className="close-btn" onClick={onClose}>
+          <CloseIcon />
+        </button>
 
-return (
-  <div id='event-form' className={isEventFormOpen ? 'show' : 'hide'} ref={formRef}>
-
-
-    <form className='form' onSubmit={handleSubmit}>
-      <button className="close-btn" onClick={onClose}>
-        <CloseIcon />
-      </button>
-
-      <h2>Add an event</h2>
-      <label htmlFor="title">Title</label>
-      <input 
-        id='title' 
-        type='text' 
-        placeholder='Title' 
-        onChange={setTitle} 
-        required
-      />
-
-      <label htmlFor="description">Description</label>
-      <input 
-        id='description' 
-        type='text' 
-        placeholder='Description' 
-        onChange={setDescription} 
-        required
-      />
-
-      <label htmlFor="date">Date</label>
-      <input 
-          id='date' 
-          type='date' 
-          placeholder='Date' 
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+        <h2>Add an event</h2>
+        <label htmlFor="title">Title</label>
+        <input
+          id='title'
+          type='text'
+          placeholder='Title'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           required
         />
 
-      <button type='submit' className='submit'>Add</button>
-    </form>
-  </div>
-);
+        <label htmlFor="description">Description</label>
+        <input
+          id='description'
+          type='text'
+          placeholder='Description'
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+
+        <label htmlFor="date">Date</label>
+        <input
+          id='date'
+          type='date'
+          placeholder='Date'
+          value={date}
+        />
+
+        <button
+          type='submit'
+          className='submit'
+          onClick={(e) => handleSubmit(e, 'edit')}
+        >
+          Save changes
+        </button>
+        <button
+          type='submit'
+          className='submit'
+          onClick={(e) => handleSubmit(e, 'delete')}
+        >
+          Delete
+        </button>
+
+      </form>
+    </div>
+  );
 }
 
 export default EditEventForm;

@@ -2,18 +2,17 @@ import React from 'react'
 import tempImage from '../../assets/testing.jpg'
 import './Event.css'
 
-const Event = ({ event, isEven }) => {
+const Event = ({ event, isEven, onEventClick }) => {
     const { img, title, description, date } = event
 
     const image = img ? img : tempImage;
 
-    const toggleForm = () => {
-        console.log('clicked')
+    const toggleForm = (event) => {
+        onEventClick(event);
     }
 
     return (
-
-        <div className={isEven ? 'container left' : 'container right'} onClick={toggleForm}>
+        <div className={isEven ? 'container left' : 'container right'} onClick={() => toggleForm(event)}>
             <div className="date">15 JUL</div>
             <div className='content'>
                 <img className="eventImg" src={image} alt="food" />
@@ -22,7 +21,6 @@ const Event = ({ event, isEven }) => {
                     <p className='event-description'>{description}</p>
                 </div>
             </div>
-
         </div>
     )
 }
