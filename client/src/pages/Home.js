@@ -20,7 +20,7 @@ const Home = () => {
             <li>Relieve it all with a quick search</li>
           </ul>
         </div>
-        <form className='form'>
+        <form className='beta-form'>
           <div><input type='email' placeholder='user@example.com' className='hero-input' /></div>
           <input type='submit' value='Sign Up for Beta Access!' className='hero-button' />
         </form>

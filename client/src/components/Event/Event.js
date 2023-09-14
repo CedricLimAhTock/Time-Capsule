@@ -1,5 +1,5 @@
 import React from 'react'
-import tempImage from '../../assets/testing.jpg'
+import tempImage from '../../assets/temp2.png'
 import './Event.css'
 
 const Event = ({ event, isEven, onEventClick }) => {

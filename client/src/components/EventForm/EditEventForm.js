@@ -109,20 +109,22 @@ const EditEventForm = ({ isEventFormOpen, onClose, eventData }) => {
           value={date}
         />
 
-        <button
-          type='submit'
-          className='submit'
-          onClick={(e) => handleSubmit(e, 'edit')}
-        >
-          Save changes
-        </button>
-        <button
-          type='submit'
-          className='submit'
-          onClick={(e) => handleSubmit(e, 'delete')}
-        >
-          Delete
-        </button>
+        <div className="button-container">
+          <button
+            type="submit"
+            className="submit edit"
+            onClick={(e) => handleSubmit(e, 'edit')}
+          >
+            Save
+          </button>
+          <button
+            type="submit"
+            className="submit delete"
+            onClick={(e) => handleSubmit(e, 'delete')}
+          >
+            Delete
+          </button>
+        </div>
 
       </form>
     </div>

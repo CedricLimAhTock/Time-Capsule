@@ -43,7 +43,7 @@ const TimelineControl = () => {
         <input type='text' className='timeline-search' placeholder='Search' 
          style={{ display: isSearchOpen ? 'inline-block' : 'none' }}/>
         <button className='timeline-custom'  onClick={toggleCustom}>Custom</button>
-        <button className='timeline-control'  onClick={toggleEventForm}>Add</button>
+        <button className='add-event-btn'  onClick={toggleEventForm}>Add</button>
         {isEventFormOpen && <EventForm isEventFormOpen={isEventFormOpen} onClose={toggleEventForm} />}
     </div>
   )

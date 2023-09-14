@@ -70,7 +70,7 @@
 
 /* Form Submit Button */
 .submit {
-  background-color: #01c07d;
+  background-color: rgb(56, 184, 124);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -81,11 +81,37 @@
 
 /* Additional Styles (optional) */
 .submit:hover {
-  background-color: #00b374; /* Darker shade on hover */
+  background-color: rgb(45, 160, 100); /* Darker shade on hover */
 }
 
+
+.submit {
+  background-color: rgb(56, 184, 124);
+}
+
+.submit.delete {
+  background-color: rgb(243, 69,65);
+}
+
+.submit.delete:hover {
+  background-color: rgb(195, 53, 51);
+}
 /* Add any additional styles or media queries as needed */
 
 label {
   color: #3232327f;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.submit.edit {
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+.submit.delete {
+  margin-left: 10px; /* Add some spacing between buttons */
 }
