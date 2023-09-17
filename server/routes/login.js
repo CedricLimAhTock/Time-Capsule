@@ -1,12 +1,14 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from './models/user';
+import User from '../models/User.js'
+import { config } from 'dotenv';
+config()
 
 const router = express.Router();
 
 // Login route
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -26,7 +28,6 @@ router.post('/login', async (req, res) => {
         message: 'Invalid credentials'
       });
     }
-
     // If authentication is successful, generate a new JWT for the user
     const token = jwt.sign({
       userID: user._id,

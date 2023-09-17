@@ -1,10 +1,10 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import User from './models/user';
+import User from '../models/User.js'
 
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
     const { username, password } = req.body;
 
     try {

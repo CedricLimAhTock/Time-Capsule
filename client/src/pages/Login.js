@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './style/Login.css';
 
@@ -11,18 +11,18 @@ const Login = () => {
       e.preventDefault();
       
       try {
-        //const response = await axios.post('/api/login', {
-        //  username,
-        //  password
-        //});
+        const response = await axios.post('http://localhost:5555/login', {
+         username,
+         password
+        });
 
         // If successfully logged in, redirect to the explore page
-        // const { jwtToken } = response.data;         // Receive the token from the response
-        // localStorage.setItem('jwtToken', jwtToken); // Store the token in local storage
+        const { jwtToken } = response.data;         // Receive the token from the response
+        localStorage.setItem('jwtToken', jwtToken); // Store the token in local storage
 
-        // console.log('Successfully logged in');
+        console.log('Successfully logged in');
         // Redirect to the explore page
-        //  window.location.href = '/explore';
+         window.location.href = '/timeline';
 
       } catch (err) {
         console.log(err);

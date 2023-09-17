@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import Timeline from './pages/Timeline';
 
 function App() {
+  const user = localStorage.getItem("jwtToken");
   return (
     <Router>
       <div>
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/explore" element={<Layout><Explore /></Layout>} />
           <Route path="/feedback" element={<Layout><Feedback /></Layout>} />
-          <Route path="/timeline" element={<Layout><Timeline /></Layout>} />
+          {user && <Route path="/timeline" element={<Layout><Timeline /></Layout>} />}
           {/* Login without Layout */}
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />

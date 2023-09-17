@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
-//import axios from 'axios';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import './style/Login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => { 
       e.preventDefault();
       
       try {
-        //const response = await axios.post('/api/signup', {
-        //  username,
-        //  password
-        //});
+        const response = await axios.post('http://localhost:5555/signup', {
+         username,
+         password
+        });
 
-        // If successfully logged in, redirect to the explore page
-        // const { jwtToken } = response.data;         // Receive the token from the response
-        // localStorage.setItem('jwtToken', jwtToken); // Store the token in local storage
-
-        // console.log('Successfully logged in');
-        // Redirect to the explore page
-        //  window.location.href = '/explore';
-
+        navigate("/login")
+        console.log(response.message)
       } catch (err) {
         console.log(err);
       }

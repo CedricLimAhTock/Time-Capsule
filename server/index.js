@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import { PORT, mongoDBURL } from './config.js';
 import Event from './models/Event.js';
 import cors from 'cors';
-import eventRoutes from './routes/events.js'
+import eventRoutes from './routes/events.js';
+import signUpRoutes from './routes/signup.js';
+import loginRoutes from './routes/login.js';
 
 const app = express(); 
 
@@ -20,6 +22,8 @@ app.use(cors());
 
 
 app.use('/events', eventRoutes);
+app.use('/login', loginRoutes);
+app.use('/signup', signUpRoutes);
 
 
 mongoose
