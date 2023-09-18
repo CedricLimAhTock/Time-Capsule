@@ -8,26 +8,27 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => { 
-      e.preventDefault();
-      
-      try {
-        const response = await axios.post('http://localhost:5555/login', {
-         username,
-         password
-        });
+    e.preventDefault();
+    
+    try {
+      const response = await axios.post('http://localhost:5555/login', {
+        username,
+        password
+      });
 
-        // If successfully logged in, redirect to the explore page
-        const { jwtToken } = response.data;         // Receive the token from the response
-        localStorage.setItem('jwtToken', jwtToken); // Store the token in local storage
-
+      const { token } = response.data; 
+      if (token) {
+        localStorage.setItem('jwtToken', token);
         console.log('Successfully logged in');
-        // Redirect to the explore page
-         window.location.href = '/timeline';
 
-      } catch (err) {
-        console.log(err);
+        window.location.href = '/timeline';
+      } else {
+        console.log('Token is undefined in the response');
       }
-  }
+    } catch (err) {
+      console.log(err);
+    }
+}
 
   return (
     <div className="login-container">

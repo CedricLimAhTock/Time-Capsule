@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
         message: 'Invalid credentials'
       });
     }
+
     // If authentication is successful, generate a new JWT for the user
     const token = jwt.sign({
       userID: user._id,
